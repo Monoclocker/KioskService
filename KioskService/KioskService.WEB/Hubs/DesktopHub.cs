@@ -1,4 +1,6 @@
 ﻿using KioskService.Core.DTO;
+using KioskService.Core.Models;
+using KioskService.Persistance.Database;
 using KioskService.WEB.Interfaces;
 using KioskService.WEB.Utils;
 using Microsoft.AspNetCore.SignalR;
@@ -10,14 +12,17 @@ namespace KioskService.WEB.Hubs
         IHubContext<KioskHub> kioskHub;
         IConnectionStorage connections;
         ILogger<DesktopHub> logger;
+        UnitOfWork database;
 
         public DesktopHub(IHubContext<KioskHub> kioskHub, 
             IConnectionStorage connections,
-            ILogger<DesktopHub> logger)
+            ILogger<DesktopHub> logger,
+            UnitOfWork database)
         {
             this.kioskHub = kioskHub;
             this.connections = connections;
             this.logger = logger;
+            this.database = database;
         }
 
         public override async Task OnConnectedAsync()
@@ -28,6 +33,8 @@ namespace KioskService.WEB.Hubs
 
         public async Task SetKioskSettings(Request body)
         {
+            await database.Settings.Add((body.data as Settings)!);
+
             await kioskHub.Clients
                 .User(body.deviceId)
                 .SendAsync(KioskEventsNames.SetKioskSettingsEvent, body);

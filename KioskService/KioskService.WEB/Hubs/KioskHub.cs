@@ -12,12 +12,12 @@ namespace KioskService.WEB.Hubs
         IHubContext<DesktopHub> desktopHub;
         IConnectionStorage connections;
         ILogger<KioskHub> logger;
-        Database database;
+        UnitOfWork database;
 
         public KioskHub(IHubContext<DesktopHub> desktopHub,
             IConnectionStorage connections,
             ILogger<KioskHub> logger,
-            Database database) 
+            UnitOfWork database) 
         {
             this.desktopHub = desktopHub;
             this.connections = connections;
@@ -46,7 +46,7 @@ namespace KioskService.WEB.Hubs
 
         public async Task GetSettingsFromDB(Request request)
         {
-            Settings? settings = database.Get<Settings>(request.deviceId);
+            Settings? settings = await database.Settings.Get(request.deviceId);
 
             Response response = new Response();
 

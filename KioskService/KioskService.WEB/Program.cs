@@ -1,3 +1,4 @@
+using KioskService.Persistance;
 using KioskService.WEB.HubFilters;
 using KioskService.WEB.Hubs;
 using KioskService.WEB.Providers;
@@ -10,6 +11,8 @@ namespace KioskService.WEB
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddPersistance(builder.Configuration);
 
             builder.Services.AddSignalR(options =>
             {
