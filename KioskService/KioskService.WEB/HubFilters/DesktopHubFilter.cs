@@ -1,5 +1,4 @@
 ﻿using KioskService.Core.DTO;
-using KioskService.WEB.Hubs;
 using KioskService.WEB.Utils;
 using Microsoft.AspNetCore.SignalR;
 using System.Text.Json;
@@ -24,8 +23,9 @@ namespace KioskService.WEB.HubFilters
             {
                 string? stackTrace = ex.StackTrace;
 
-                logger.LogError(ex.Message);
-                logger.LogError(stackTrace);
+                logger.LogError($"При вызове метода {invocationContext.HubMethodName} произошла ошибка");
+                logger.LogError(ex.GetType().ToString());
+                logger.LogError(ex.StackTrace);
 
                 Response<object> response = new Response<object>()
                 {

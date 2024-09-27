@@ -29,6 +29,8 @@ namespace KioskService.WEB.Hubs
         {
             string deviceId = Context.UserIdentifier!;
 
+            throw new Exception("Error");
+
             connections.Add(deviceId);
 
             await desktopHub.Clients
