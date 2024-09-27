@@ -1,7 +1,9 @@
 using KioskService.Persistance;
 using KioskService.WEB.HubFilters;
 using KioskService.WEB.Hubs;
+using KioskService.WEB.Interfaces;
 using KioskService.WEB.Providers;
+using KioskService.WEB.Storages;
 using Microsoft.AspNetCore.SignalR;
 
 namespace KioskService.WEB
@@ -28,6 +30,7 @@ namespace KioskService.WEB
             });
 
             builder.Services.AddSingleton<IUserIdProvider, UserIdProvider>();
+            builder.Services.AddSingleton<IConnectionStorage, InMemoryConnectionStorage>();
 
             var app = builder.Build();
             

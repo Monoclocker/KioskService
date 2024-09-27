@@ -17,15 +17,22 @@ namespace KioskService.WEB.HubFilters
         public async ValueTask<object?> InvokeMethodAsync(HubInvocationContext invocationContext, 
             Func<HubInvocationContext, ValueTask<object?>> next)
         {
+            string? deviceId = invocationContext.Context.UserIdentifier;
             try
             {
+                if (deviceId == null)
+                {
+                    await invocationContext.Hub.Clients.Caller.SendAsync(KioskEventsNames.KioskConnectionErrorEvent);
+                    throw new Exception();
+                }
+
                 return await next(invocationContext);
             }
             catch (Exception ex)
             {
                 string? stackTrace = ex.StackTrace;
 
-                Response response = new Response()
+                Response<object> response = new Response<object>()
                 {
                     message = "Произошла ошибка при обработке события киоска",
                     stackTrace = stackTrace,

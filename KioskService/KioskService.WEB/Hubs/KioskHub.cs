@@ -1,5 +1,4 @@
 ﻿using KioskService.Core.DTO;
-using KioskService.Core.Models;
 using KioskService.Persistance.Database;
 using KioskService.WEB.Interfaces;
 using KioskService.WEB.Utils;
@@ -17,7 +16,8 @@ namespace KioskService.WEB.Hubs
         public KioskHub(IHubContext<DesktopHub> desktopHub,
             IConnectionStorage connections,
             ILogger<KioskHub> logger,
-            UnitOfWork database) 
+            UnitOfWork database
+            ) 
         {
             this.desktopHub = desktopHub;
             this.connections = connections;
@@ -27,13 +27,7 @@ namespace KioskService.WEB.Hubs
 
         public override async Task OnConnectedAsync()
         {
-            string? deviceId = Context.UserIdentifier;
-
-            if (deviceId == null) 
-            {
-                await Clients.Caller.SendAsync(KioskEventsNames.KioskConnectionErrorEvent);
-                return;
-            }
+            string deviceId = Context.UserIdentifier!;
 
             connections.Add(deviceId);
 
@@ -44,11 +38,10 @@ namespace KioskService.WEB.Hubs
             await base.OnConnectedAsync();
         }
 
-        public async Task GetSettingsFromDB(Request request)
+        public async Task GetSettingsFromDB(Request<object> request)
         {
-            Settings? settings = await database.Settings.Get(request.deviceId);
-
-            Response response = new Response();
+            object? settings = request.data;
+            Response<object> response = new Response<object>();
 
             if (settings is null)
             {
@@ -63,7 +56,7 @@ namespace KioskService.WEB.Hubs
 
                 await Clients.User(request.deviceId).SendAsync(KioskEventsNames.GetSettingsEvent, response);
             }
-        } 
+        }
 
         public async Task TransportKioskStateResponse(Response body)
         {

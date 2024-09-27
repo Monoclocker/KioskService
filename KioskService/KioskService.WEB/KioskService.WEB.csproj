@@ -4,7 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>d5b32398-33ac-4a71-a00e-bc72827ccca6</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="8.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\KioskService.Core\KioskService.Core.csproj" />

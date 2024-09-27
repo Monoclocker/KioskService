@@ -8,6 +8,10 @@
         public string? errorType { get; set; }
         public string? stackTrace { get; set; }
         public DateTime? date { get; set; }
-        public object? data { get; set; }
+    }
+
+    public class Response<T> : Response
+    {
+        public T? data { get; set; }
     }
 }

@@ -8,6 +8,11 @@ namespace KioskService.WEB.HubFilters
 {
     public class DesktopHubFilter : IHubFilter
     {
+        ILogger<DesktopHubFilter> logger;
+        public DesktopHubFilter(ILogger<DesktopHubFilter> logger)
+        {
+            this.logger = logger;
+        }
         public async ValueTask<object?> InvokeMethodAsync(HubInvocationContext invocationContext,
             Func<HubInvocationContext, ValueTask<object?>> next)
         {
@@ -19,7 +24,10 @@ namespace KioskService.WEB.HubFilters
             {
                 string? stackTrace = ex.StackTrace;
 
-                Response response = new Response()
+                logger.LogError(ex.Message);
+                logger.LogError(stackTrace);
+
+                Response<object> response = new Response<object>()
                 {
                     message = "Произошла ошибка при обработке события клиента",
                     stackTrace = stackTrace,

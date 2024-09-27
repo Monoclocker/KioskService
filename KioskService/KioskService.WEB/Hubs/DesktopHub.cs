@@ -1,9 +1,9 @@
 ﻿using KioskService.Core.DTO;
-using KioskService.Core.Models;
 using KioskService.Persistance.Database;
 using KioskService.WEB.Interfaces;
 using KioskService.WEB.Utils;
 using Microsoft.AspNetCore.SignalR;
+using System.Text.Json;
 
 namespace KioskService.WEB.Hubs
 {
@@ -17,7 +17,8 @@ namespace KioskService.WEB.Hubs
         public DesktopHub(IHubContext<KioskHub> kioskHub, 
             IConnectionStorage connections,
             ILogger<DesktopHub> logger,
-            UnitOfWork database)
+            UnitOfWork database
+            )
         {
             this.kioskHub = kioskHub;
             this.connections = connections;
@@ -31,9 +32,10 @@ namespace KioskService.WEB.Hubs
             await base.OnConnectedAsync();
         }
 
-        public async Task SetKioskSettings(Request body)
+        public async Task SetKioskSettings(Request<object> body)
         {
-            await database.Settings.Add((body.data as Settings)!);
+
+            Console.WriteLine(JsonSerializer.Serialize(body));
 
             await kioskHub.Clients
                 .User(body.deviceId)

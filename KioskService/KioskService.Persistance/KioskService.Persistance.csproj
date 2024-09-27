@@ -13,7 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="EntityConfiguration\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="Repositories\" />
     <Folder Include="Services\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 
   <ItemGroup>
