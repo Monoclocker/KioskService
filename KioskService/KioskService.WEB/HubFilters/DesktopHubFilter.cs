@@ -1,7 +1,6 @@
 ﻿using KioskService.Core.DTO;
 using KioskService.WEB.Utils;
 using Microsoft.AspNetCore.SignalR;
-using System.Text.Json;
 
 namespace KioskService.WEB.HubFilters
 {
@@ -35,9 +34,9 @@ namespace KioskService.WEB.HubFilters
                     data = ex.Data
                 };
 
-                string responseBody = JsonSerializer.Serialize(response);
 
-                await invocationContext.Hub.Clients.All.SendAsync(DesktopEventsNames.KioskErrorEvent, responseBody);
+                await invocationContext.Hub.Clients
+                    .All.SendAsync(DesktopEventsNames.KioskErrorEvent, response);
 
                 return null;
             }

@@ -1,93 +1,62 @@
 ﻿using KioskService.Core.DTO;
 using KioskService.Persistance.Database;
 using KioskService.WEB.Interfaces;
-using KioskService.WEB.Utils;
+using KioskService.WEB.Services;
 using Microsoft.AspNetCore.SignalR;
 
 namespace KioskService.WEB.Hubs
 {
     public class KioskHub: Hub
     {
-        IHubContext<DesktopHub> desktopHub;
-        IConnectionStorage connections;
+        DataSender dataSender;
         ILogger<KioskHub> logger;
-        UnitOfWork database;
+        IConnectionStorage connectionStorage;
+        DatabaseContext context;
 
-        public KioskHub(IHubContext<DesktopHub> desktopHub,
-            IConnectionStorage connections,
+        public KioskHub(
+            DataSender dataSender,
             ILogger<KioskHub> logger,
-            UnitOfWork database
-            ) 
+            IConnectionStorage connectionStorage,
+            DatabaseContext context
+        ) 
         {
-            this.desktopHub = desktopHub;
-            this.connections = connections;
+            this.dataSender = dataSender;
             this.logger = logger;
-            this.database = database;
+            this.connectionStorage = connectionStorage;
+            this.context = context;
         }
 
         public override async Task OnConnectedAsync()
         {
             string deviceId = Context.UserIdentifier!;
 
-            throw new Exception("Error");
-
-            connections.Add(deviceId);
-
-            await desktopHub.Clients
-                .All
-                .SendAsync(DesktopEventsNames.KioskConnectedEvent, deviceId);
+            await dataSender.NotifyDesktopAboutKioskConnect(deviceId);
 
             await base.OnConnectedAsync();
         }
 
-        public async Task GetSettingsFromDB(Request<object> request)
-        {
-            object? settings = request.data;
-            Response<object> response = new Response<object>();
-
-            if (settings is null)
-            {
-                response.statusCode = 404;
-
-                await Clients.User(request.deviceId).SendAsync(KioskEventsNames.GetSettingsEvent, response);
-            }
-            else
-            {
-                response.statusCode = 200;
-                response.data = settings;
-
-                await Clients.User(request.deviceId).SendAsync(KioskEventsNames.GetSettingsEvent, response);
-            }
-        }
-
         public async Task TransportKioskStateResponse(Response body)
         {
-            await desktopHub.Clients
-                .All
-                .SendAsync(DesktopEventsNames.KioskSettingsResponseEvent, body);
+            await dataSender.TransportKioskStateToDesktop(body);
         }
 
         public async Task TransportResultsResponse(Response body)
         {
-            await desktopHub.Clients
-                .All
-                .SendAsync(DesktopEventsNames.KioskResultsResponseEvent, body);
+            await dataSender.TransportResultsToDesktop(body);
         }
 
         public async Task ProceedRefund(Request body)
         {
-            await desktopHub.Clients
-                .All
-                .SendAsync(DesktopEventsNames.KioskRefundRequestEvent, body);
+           await dataSender.ProceedRefundToDesktop(body);
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             string deviceId = Context.UserIdentifier!;
 
-            connections.Delete(deviceId);
+            connectionStorage.Delete(deviceId);
 
-            await desktopHub.Clients.All.SendAsync(DesktopEventsNames.KioskDisconnectedEvent, deviceId);
+            await dataSender.NotifyDesktopAboutKioskDisconnect(deviceId);
 
             logger.LogInformation($"Киоск {deviceId} отключён");
 
