@@ -1,6 +1,6 @@
 ﻿using KioskService.Core.DTO;
+using KioskService.Core.Models;
 using KioskService.WEB.Hubs;
-using KioskService.WEB.Interfaces;
 using KioskService.WEB.Utils;
 using Microsoft.AspNetCore.SignalR;
 
@@ -27,51 +27,40 @@ namespace KioskService.WEB.Services
                 .SendAsync(DesktopEventsNames.KioskConnectedEvent, deviceId);
         }
 
-        public async Task RequestKioskStateFromKiosk(Request request)
-        {
-           await kioskHub.Clients
-                .User(request.deviceId)
-                .SendAsync(KioskEventsNames.KioskGetStateRequestEvent);
-        }
-
-        public async Task SetKioskSettingsOnKiosk(Request request)
-        {
-            await kioskHub.Clients
-                .User(request.deviceId)
-                .SendAsync(KioskEventsNames.SetKioskSettingsEvent, request);
-        }
-
-        public async Task RequestKioskResultsOnKiosk(Request request)
-        {
-            await kioskHub.Clients
-               .User(request.deviceId)
-               .SendAsync(KioskEventsNames.KioskResultsRequestEvent, request);
-        }
-
-        public async Task TransportKioskStateToDesktop(Response response)
-        {
-            await desktopHub.Clients
-                .All
-                .SendAsync(DesktopEventsNames.KioskSettingsResponseEvent, response);
-        }
-
-        public async Task TransportResultsToDesktop(Response response)
-        {
-            await desktopHub.Clients
-                .All
-                .SendAsync(DesktopEventsNames.KioskResultsResponseEvent, response);
-        }
-
-        public async Task ProceedRefundToDesktop(Request request)
-        {
-            await desktopHub.Clients
-               .All
-               .SendAsync(DesktopEventsNames.KioskRefundRequestEvent, request);
-        }
-
         public async Task NotifyDesktopAboutKioskDisconnect(string deviceId)
         {
             await desktopHub.Clients.All.SendAsync(DesktopEventsNames.KioskDisconnectedEvent, deviceId);
+        }
+
+        public async Task SendPaymentSaveResultToDesktop(Response<Guid> response)
+        {
+            await desktopHub.Clients.All.SendAsync(DesktopEventsNames.SendSavePaymentResultEvent, response);
+        }
+
+        public async Task SendRefundMessageToKiosk(Request<Guid> request)
+        {
+            await kioskHub.Clients
+                .User(request.deviceId)
+                .SendAsync(KioskEventsNames.ProceedRefundEvent, request);
+        }
+
+        public async Task SendRefundResultToDesktop(Response<Guid> response)
+        {
+            await desktopHub.Clients
+                .All
+                .SendAsync(DesktopEventsNames.RefundResponseEvent, response);
+        }
+
+        public async Task SendSettingsToKiosk(Request<Settings> request)
+        {
+            await kioskHub.Clients.User(request.deviceId)
+                .SendAsync(KioskEventsNames.SendSettingsEvent, request);
+        }
+
+        public async Task SendSetSettingsResultToDesktop(Response response)
+        {
+            await desktopHub.Clients.All
+                .SendAsync(DesktopEventsNames.SetSettingsResponseEvent, response);
         }
     }
 }

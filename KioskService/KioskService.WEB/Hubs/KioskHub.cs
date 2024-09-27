@@ -1,8 +1,12 @@
 ﻿using KioskService.Core.DTO;
+using KioskService.Core.Exceptions;
+using KioskService.Core.Interfaces;
+using KioskService.Core.Models;
 using KioskService.Persistance.Database;
 using KioskService.WEB.Interfaces;
 using KioskService.WEB.Services;
 using Microsoft.AspNetCore.SignalR;
+using System.Text.Json;
 
 namespace KioskService.WEB.Hubs
 {
@@ -10,18 +14,21 @@ namespace KioskService.WEB.Hubs
     {
         DataSender dataSender;
         ILogger<KioskHub> logger;
+        IPaymentService paymentService;
         IConnectionStorage connectionStorage;
         DatabaseContext context;
 
         public KioskHub(
             DataSender dataSender,
             ILogger<KioskHub> logger,
+            IPaymentService paymentService,
             IConnectionStorage connectionStorage,
             DatabaseContext context
         ) 
         {
             this.dataSender = dataSender;
             this.logger = logger;
+            this.paymentService = paymentService;
             this.connectionStorage = connectionStorage;
             this.context = context;
         }
@@ -35,19 +42,46 @@ namespace KioskService.WEB.Hubs
             await base.OnConnectedAsync();
         }
 
-        public async Task TransportKioskStateResponse(Response body)
+        public async Task SavePayment(Request<Payment> body)
         {
-            await dataSender.TransportKioskStateToDesktop(body);
+            Guid newPaymentId = await paymentService.SavePayment(body.data);
+
+            Response<Guid> response = new Response<Guid>()
+            {
+                statusCode = 200,
+                deviceId = body.deviceId,
+                date = DateTime.UtcNow,
+                data = newPaymentId
+            };
+
+            string responseJson = JsonSerializer.Serialize(response);
+
+            logger.LogInformation($"Запрос выполнен, тело ответа: {responseJson}");
+
+            await dataSender.SendPaymentSaveResultToDesktop(response);
         }
 
-        public async Task TransportResultsResponse(Response body)
+        public async Task RefundResult(Response<Guid> response) 
         {
-            await dataSender.TransportResultsToDesktop(body);
+            if (response.statusCode == 200)
+            {
+                try
+                {
+                    await paymentService.ProceedRefund(response.data);
+                }
+                catch (InvalidPaymentTranscation)
+                {
+                    response.statusCode = 400;
+                    response.message = "Ошибка при отмене транзакции на сервере";
+                }
+            }
+
+            await dataSender.SendRefundResultToDesktop(response);
         }
 
-        public async Task ProceedRefund(Request body)
+        public async Task SetSettingsResult(Response response)
         {
-           await dataSender.ProceedRefundToDesktop(body);
+            await dataSender.SendSetSettingsResultToDesktop(response);
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)

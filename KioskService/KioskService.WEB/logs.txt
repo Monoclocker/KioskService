@@ -1,0 +1,4 @@
+27.09.2024 13:15:53: Now listening on: http://localhost:5238
+27.09.2024 13:15:53: Application started. Press Ctrl+C to shut down.
+27.09.2024 13:15:53: Hosting environment: Development
+27.09.2024 13:15:53: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB

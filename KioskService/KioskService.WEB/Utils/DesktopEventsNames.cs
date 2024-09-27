@@ -2,12 +2,14 @@
 {
     public class DesktopEventsNames
     {
-        public const string KioskConnectedEvent = "kiosk_connected";
-        public const string ConnectedToServiceEvent = "connected_to_service";
-        public const string KioskDisconnectedEvent = "kiosk_disconnected";
-        public const string KioskSettingsResponseEvent = "kiosk_settings_response";
-        public const string KioskResultsResponseEvent = "kiosk_results_response";
-        public const string KioskRefundRequestEvent = "kiosk_refund_request";
-        public const string KioskErrorEvent = "kiosk_error";
+        public const string KioskConnectedEvent = "kioskConnected";
+        public const string ConnectedToServiceEvent = "connectedToService";
+        public const string KioskDisconnectedEvent = "kioskDisconnected";
+
+        public const string SendSavePaymentResultEvent = "savePaymentResultResponse";
+        public const string GetPaymentEvent = "getPaymentResponse";
+        public const string RefundResponseEvent = "refundResponse";
+        public const string SetSettingsResponseEvent = "setSettingsResponse";
+        
     }
 }

@@ -9,10 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioskService.Persistance", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioskService.Core", "KioskService.Core\KioskService.Core.csproj", "{4D6BA705-CA0B-4EB3-859F-9EE1757E6B23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopExample", "DesktopExample\DesktopExample.csproj", "{99972156-FDBC-4599-B729-BAB1E315C031}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskExample", "KioskExample\KioskExample.csproj", "{EBDB134C-0465-443D-9922-ED202868AE7B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{4D6BA705-CA0B-4EB3-859F-9EE1757E6B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D6BA705-CA0B-4EB3-859F-9EE1757E6B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D6BA705-CA0B-4EB3-859F-9EE1757E6B23}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99972156-FDBC-4599-B729-BAB1E315C031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99972156-FDBC-4599-B729-BAB1E315C031}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99972156-FDBC-4599-B729-BAB1E315C031}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99972156-FDBC-4599-B729-BAB1E315C031}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EBDB134C-0465-443D-9922-ED202868AE7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EBDB134C-0465-443D-9922-ED202868AE7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EBDB134C-0465-443D-9922-ED202868AE7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EBDB134C-0465-443D-9922-ED202868AE7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
