@@ -28,7 +28,7 @@ namespace KioskService.WEB.HubFilters
 
                 Response response = new Response()
                 {
-                    message = "Произошла ошибка при обработке события клиента",
+                    message = $"Произошла ошибка при обработке события клиента: {ex.Message}",
                     stackTrace = stackTrace,
                     statusCode = 500
                 };
@@ -37,7 +37,7 @@ namespace KioskService.WEB.HubFilters
 
                 if (hub != null)
                 {
-                    await hub.Clients.All.Error(response);
+                    await hub.Clients.Caller.Error(response);
                 }
 
                 return null;

@@ -133,14 +133,18 @@ namespace KioskService.WEB.Hubs
                 date = DateTime.UtcNow
             };
 
-            await desktopHub.Clients.All.KioskDisconnected(response);
 
             logger.LogInformation($"Киоск {deviceId} отключён");
 
             if (exception is not null)
             {
+                response.statusCode = 500;
+                response.stackTrace = exception.StackTrace;
+                response.message = exception.Message;
                 logger.LogError($"Ошибка {exception.GetType()}: {exception.Message}");
             }
+
+            await desktopHub.Clients.All.KioskDisconnected(response);
 
             await base.OnDisconnectedAsync(exception);
         }
