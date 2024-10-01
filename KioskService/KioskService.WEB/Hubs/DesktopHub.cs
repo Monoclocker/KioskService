@@ -101,7 +101,8 @@ namespace KioskService.WEB.Hubs
         {
             int pageNum = request.data <= 0 ? 0 : request.data;
 
-            PaginatedList<ResultsPreview> page = await resultsService.GetPreviousResults(request.data);
+            PaginatedList<ResultsPreview> page 
+                = await resultsService.GetPreviousResults(request.deviceId, pageNum);
 
             Response<PaginatedList<ResultsPreview>> response 
                 = new Response<PaginatedList<ResultsPreview>>()
@@ -119,7 +120,7 @@ namespace KioskService.WEB.Hubs
             int pageNum = request.data <= 0 ? 0 : request.data;
 
             PaginatedList<PaymentPreview> page
-                = await paymentService.GetPreviousTransactions(pageNum);
+                = await paymentService.GetPreviousTransactions(request.deviceId, pageNum);
 
             Response<PaginatedList<PaymentPreview>> response
                 = new Response<PaginatedList<PaymentPreview>>()

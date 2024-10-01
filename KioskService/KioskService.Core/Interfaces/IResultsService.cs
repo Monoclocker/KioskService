@@ -7,6 +7,6 @@ namespace KioskService.Core.Interfaces
     {
         public Task<int> SaveResults(Results dto);
         public Task<Results?> GetResults(int id);
-        public Task<PaginatedList<ResultsPreview>> GetPreviousResults(int page); 
+        public Task<PaginatedList<ResultsPreview>> GetPreviousResults(string deviceId, int page); 
     }
 }

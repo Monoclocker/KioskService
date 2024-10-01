@@ -17,13 +17,16 @@ namespace KioskService.Persistance.Services
             this.context = context;
         }
 
-        public async Task<PaginatedList<ResultsPreview>> GetPreviousResults(int page = 1)
+        public async Task<PaginatedList<ResultsPreview>> GetPreviousResults(string deviceId, int page = 1)
         {
             PaginatedList<ResultsPreview> pagesList = new PaginatedList<ResultsPreview>();
 
             pagesList.pagesCount = (await context.Results.CountAsync()) / 10 + 1;
 
             pagesList.results = await context.Results
+                .AsNoTracking()
+                .Where(x => x.DeviceId == deviceId)
+                .OrderByDescending(x => x.TimeStamp)
                 .Skip(10 * (page - 1))
                 .Take(10)
                 .Select(x => new ResultsPreview()

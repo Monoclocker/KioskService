@@ -12,7 +12,6 @@ namespace KioskService.WEB.HubInterfaces
         public Task KioskDisconnected(Response<string> dto);
         public Task SendSavePaymentResult(Response<PaymentPreview> dto);
         public Task GetPayment(Response<Payment> dto);
-        public Task NewPayment(Response<PaymentPreview> dto);
         public Task RefundResponse(Response<int> dto);
         public Task SetSettingsResponse(Response dto);
         public Task GetResults(Response<Core.Models.Results> dto);

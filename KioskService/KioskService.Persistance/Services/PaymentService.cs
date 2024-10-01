@@ -32,7 +32,7 @@ namespace KioskService.Persistance.Services
             return null;
         }
 
-        public async Task<PaginatedList<PaymentPreview>> GetPreviousTransactions(int page)
+        public async Task<PaginatedList<PaymentPreview>> GetPreviousTransactions(string deviceId, int page)
         {
             PaginatedList<PaymentPreview> paymentPage = new PaginatedList<PaymentPreview>();
 
@@ -40,7 +40,8 @@ namespace KioskService.Persistance.Services
 
             paymentPage.results = await context.Payment
                 .AsNoTracking()
-                .Where(x => x.IsValid)
+                .Where(x => x.IsValid && x.DeviceId == deviceId)
+                .OrderByDescending(x => x.TimeStamp)
                 .Skip(10 * (page - 1))
                 .Take(10)
                 .Select(x => new PaymentPreview()
