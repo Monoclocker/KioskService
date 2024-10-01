@@ -6,6 +6,6 @@
         public string deviceId { get; set; } = default!;
         public DateTime localTime { get; set; }
         public DateTime utcTime { get; set; }
-        public string check { get; set; } = default!;    
+        public string? check { get; set; }  
     }
 }

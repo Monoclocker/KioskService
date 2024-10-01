@@ -2,7 +2,8 @@
 {
     public class Payment
     {
-        public Guid id { get; set; }
+        public int id { get; set; }
+        public string deviceId { get; set; } = default!;
         public string status { get; set; } = default!;
         public string organization { get; set; } = default!;
         public double sum { get; set; } = default!;
@@ -11,6 +12,6 @@
         public string idemptencyENR { get; set; } = default!;
         public string paymentWay { get; set; } = default!;
         public List<string> paymentObjects { get; set; } = new List<string>();
-        public string check { get; set; } = default!;
+        public string? check { get; set; }
     }
 }

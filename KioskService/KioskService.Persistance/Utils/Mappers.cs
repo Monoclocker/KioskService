@@ -9,5 +9,8 @@ namespace KioskService.Persistance.Utils
     {
         public IDBMapper<Payment, PaymentEntity> paymentMapper =>
             new PaymentMapper();
+
+        public IDBMapper<Results, ResultsEntity> resultsMapper =>
+            new ResultsMapper();
     }
 }

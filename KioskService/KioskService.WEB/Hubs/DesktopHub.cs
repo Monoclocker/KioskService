@@ -1,50 +1,54 @@
 ﻿using KioskService.Core.DTO;
 using KioskService.Core.Interfaces;
 using KioskService.Core.Models;
-using KioskService.Persistance.Database;
+using KioskService.WEB.HubInterfaces;
 using KioskService.WEB.Interfaces;
-using KioskService.WEB.Services;
-using KioskService.WEB.Utils;
 using Microsoft.AspNetCore.SignalR;
 
 namespace KioskService.WEB.Hubs
 {
-    public class DesktopHub : Hub
+    public class DesktopHub : Hub<IDesktopHub>
     {
-        DataSender dataSender;
+        IHubContext<KioskHub, IKioskHub> kioskHub;
         ILogger<DesktopHub> logger;
         IPaymentService paymentService;
+        IResultsService resultsService;
         IConnectionStorage connectionStorage;
-        DatabaseContext context;
 
         public DesktopHub(
-            DataSender dataSender,
+            IHubContext<KioskHub, IKioskHub> kioskHub,
             IConnectionStorage connectionStorage,
             IPaymentService paymentService,
-            ILogger<DesktopHub> logger,
-            DatabaseContext context
+            IResultsService resultsService,
+            ILogger<DesktopHub> logger
         )
         {
-            this.dataSender = dataSender;
+            this.kioskHub = kioskHub;
             this.connectionStorage = connectionStorage;
             this.paymentService = paymentService;
+            this.resultsService = resultsService;
             this.logger = logger;
-            this.context = context;
         }
 
         public override async Task OnConnectedAsync()
         {
-            await Clients.Caller.SendAsync(DesktopEventsNames.ConnectedToServiceEvent, connectionStorage);
+            Response<IEnumerable<string>> currentConnectedIDs = new Response<IEnumerable<string>>()
+            {
+                statusCode = 200,
+                date = DateTime.Now,
+                data = connectionStorage
+            };
+
+            await Clients.Caller.ConnectedToService(currentConnectedIDs);
             await base.OnConnectedAsync();
         }
-
-        public async Task GetPayment(Request<Guid> request)
+        public async Task GetPayment(Request<int> request)
         {
             Payment? payment = await paymentService.GetPayment(request.data);
 
             Response<Payment> response = new Response<Payment>() 
             {
-                date = DateTime.Now,
+                date = DateTime.UtcNow,
                 deviceId = request.deviceId,
             };
 
@@ -58,22 +62,86 @@ namespace KioskService.WEB.Hubs
                 response.data = payment;
             }
 
-            await Clients.Caller.SendAsync(DesktopEventsNames.GetPaymentEvent, response);
+            await Clients.Caller.GetPayment(response);
         }
-
-        public async Task ProceedRefund(Request<Guid> request)
+        public async Task ProceedRefund(Request<int> request)
         {
-            await dataSender.SendRefundMessageToKiosk(request);   
+            await kioskHub.Clients
+                .User(request.deviceId)
+                .ProceedRefund(request);
         }
+        public async Task ResultsRequest(Request request)
+        {
+            await kioskHub.Clients.User(request.deviceId)
+                .ResultsRequest(request);
+        }
+        public async Task GetResults(Request<int> request)
+        {
+            Core.Models.Results? entity = await resultsService.GetResults(request.data);
 
+            Response<Core.Models.Results> response = new Response<Core.Models.Results>()
+            {
+                date = DateTime.UtcNow,
+            };
+
+            if (entity is null)
+            {
+                response.statusCode = 404;
+                response.message = "Обращение к несуществующей сверке";
+            }
+            else
+            {
+                response.statusCode = 200;
+                response.data = entity;
+            }
+
+            await Clients.Caller.GetResults(response);
+        }
+        public async Task GetPreviousResults(Request<int> request)
+        {
+            int pageNum = request.data <= 0 ? 0 : request.data;
+
+            PaginatedList<ResultsPreview> page = await resultsService.GetPreviousResults(request.data);
+
+            Response<PaginatedList<ResultsPreview>> response 
+                = new Response<PaginatedList<ResultsPreview>>()
+            {
+                date = DateTime.UtcNow,
+                deviceId = string.Empty,
+                statusCode = 200,
+                data = page,
+            };
+
+            await Clients.Caller.SavedResults(response);
+        }
+        public async Task GetPreviousPayment(Request<int> request)
+        {
+            int pageNum = request.data <= 0 ? 0 : request.data;
+
+            PaginatedList<PaymentPreview> page
+                = await paymentService.GetPreviousTransactions(pageNum);
+
+            Response<PaginatedList<PaymentPreview>> response
+                = new Response<PaginatedList<PaymentPreview>>()
+                {
+                    statusCode = 200,
+                    deviceId = string.Empty,
+                    date = DateTime.UtcNow,
+                    data = page
+                };
+
+            await Clients.Caller.SavedTransactions(response);
+        }
         public async Task SendSetings(Request<Settings> request)
         {
-            await dataSender.SendSettingsToKiosk(request);
+            await kioskHub.Clients
+                .User(request.deviceId)
+                .SendSettings(request);
         }
-
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
-            logger.LogInformation($"Приложение {Context.ConnectionId} отключено");
+            logger.LogInformation($"Приложение {Context.UserIdentifier ?? "без идентификатора"} " +
+                $"отключено");
 
             if (exception is not null)
             {

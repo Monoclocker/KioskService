@@ -11,6 +11,8 @@ namespace KioskService.Persistance.EntityConfiguration
             builder.HasKey(x => x.Id);
             builder.Property(x => x.IsValid)
                 .HasDefaultValue(true);
+            builder.Property(x => x.TimeStamp)
+                .HasDefaultValue(DateTime.UtcNow);
         }
     }
 }

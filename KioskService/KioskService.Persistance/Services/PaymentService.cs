@@ -1,4 +1,5 @@
-﻿using KioskService.Core.Exceptions;
+﻿using KioskService.Core.DTO;
+using KioskService.Core.Exceptions;
 using KioskService.Core.Interfaces;
 using KioskService.Core.Models;
 using KioskService.Persistance.Database;
@@ -17,9 +18,10 @@ namespace KioskService.Persistance.Services
             this.mappers = mappers;
         }
 
-        public async Task<Payment?> GetPayment(Guid TransactionId)
+        public async Task<Payment?> GetPayment(int TransactionId)
         {
             PaymentEntity? entity = await context.Payment
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Id == TransactionId);
 
             if (entity != null)
@@ -30,7 +32,29 @@ namespace KioskService.Persistance.Services
             return null;
         }
 
-        public async Task ProceedRefund(Guid TransactionId)
+        public async Task<PaginatedList<PaymentPreview>> GetPreviousTransactions(int page)
+        {
+            PaginatedList<PaymentPreview> paymentPage = new PaginatedList<PaymentPreview>();
+
+            paymentPage.pagesCount = (await context.Payment.CountAsync()) / 10 + 1;
+
+            paymentPage.results = await context.Payment
+                .AsNoTracking()
+                .Where(x => x.IsValid)
+                .Skip(10 * (page - 1))
+                .Take(10)
+                .Select(x => new PaymentPreview()
+                {
+                    id = x.Id,
+                    sum = x.Sum,
+                    localDate = x.TimeStamp.ToLocalTime()
+                })
+                .ToListAsync();
+
+            return paymentPage;
+        }
+
+        public async Task ProceedRefund(int TransactionId)
         {
             PaymentEntity? entity = await context.Payment
                 .FirstOrDefaultAsync(x => x.Id == TransactionId);
@@ -42,29 +66,21 @@ namespace KioskService.Persistance.Services
 
             entity.IsValid = false;
 
-            await Task.CompletedTask;
+            context.Payment.Update(entity);
+
+            await context.SaveChangesAsync();
         }
 
-        public async Task<Guid> SavePayment(Payment payment)
+        public async Task<int> SavePayment(Payment payment)
         {
-            Guid newId = Guid.NewGuid();
-
             PaymentEntity entity = mappers
                 .paymentMapper.MapToDB(payment);
-
-            entity.Id = newId;
-
-            string filePath = $"{newId}.txt";
-
-            entity.Check = filePath;
-
-            File.WriteAllText(filePath, payment.check);
 
             await context.Payment.AddAsync(entity);
 
             await context.SaveChangesAsync();
 
-            return await Task.FromResult(newId);
+            return await Task.FromResult(entity.Id);
         }
     }
 }

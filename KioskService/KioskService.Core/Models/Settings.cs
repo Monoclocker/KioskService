@@ -2,6 +2,6 @@
 {
     public class Settings
     {
-        public object settings { get; set; } = default!;
+        public string settings { get; set; } = default!;
     }
 }

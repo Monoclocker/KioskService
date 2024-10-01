@@ -2,66 +2,73 @@
 using KioskService.Core.Exceptions;
 using KioskService.Core.Interfaces;
 using KioskService.Core.Models;
-using KioskService.Persistance.Database;
+using KioskService.WEB.HubInterfaces;
 using KioskService.WEB.Interfaces;
-using KioskService.WEB.Services;
 using Microsoft.AspNetCore.SignalR;
-using System.Text.Json;
 
 namespace KioskService.WEB.Hubs
 {
-    public class KioskHub: Hub
+    public class KioskHub: Hub<IKioskHub>
     {
-        DataSender dataSender;
+        IHubContext<DesktopHub, IDesktopHub> desktopHub;
         ILogger<KioskHub> logger;
         IPaymentService paymentService;
+        IResultsService resultsService;
         IConnectionStorage connectionStorage;
-        DatabaseContext context;
 
         public KioskHub(
-            DataSender dataSender,
+            IHubContext<DesktopHub, IDesktopHub> desktopHub,
             ILogger<KioskHub> logger,
             IPaymentService paymentService,
-            IConnectionStorage connectionStorage,
-            DatabaseContext context
+            IResultsService resultsService,
+            IConnectionStorage connectionStorage
         ) 
         {
-            this.dataSender = dataSender;
+            this.desktopHub = desktopHub;
             this.logger = logger;
             this.paymentService = paymentService;
+            this.resultsService = resultsService;
             this.connectionStorage = connectionStorage;
-            this.context = context;
         }
 
         public override async Task OnConnectedAsync()
         {
             string deviceId = Context.UserIdentifier!;
 
-            await dataSender.NotifyDesktopAboutKioskConnect(deviceId);
+            Response<string> response = new Response<string>()
+            {
+                statusCode = 200,
+                data = deviceId,
+                date = DateTime.UtcNow
+            };
+
+            await desktopHub.Clients.All
+                .KioskConnected(response);
 
             await base.OnConnectedAsync();
         }
 
         public async Task SavePayment(Request<Payment> body)
         {
-            Guid newPaymentId = await paymentService.SavePayment(body.data);
+            int newPaymentId = await paymentService.SavePayment(body.data);
 
-            Response<Guid> response = new Response<Guid>()
+            Response<PaymentPreview> response = new Response<PaymentPreview>()
             {
                 statusCode = 200,
                 deviceId = body.deviceId,
                 date = DateTime.UtcNow,
-                data = newPaymentId
+                data = new PaymentPreview()
+                {
+                    id = newPaymentId,
+                    sum = body.data.sum,
+                    localDate = body.data.localTime
+                }
             };
 
-            string responseJson = JsonSerializer.Serialize(response);
-
-            logger.LogInformation($"Запрос выполнен, тело ответа: {responseJson}");
-
-            await dataSender.SendPaymentSaveResultToDesktop(response);
+            await desktopHub.Clients.All.SendSavePaymentResult(response);
         }
 
-        public async Task RefundResult(Response<Guid> response) 
+        public async Task RefundResult(Response<int> response) 
         {
             if (response.statusCode == 200)
             {
@@ -76,12 +83,41 @@ namespace KioskService.WEB.Hubs
                 }
             }
 
-            await dataSender.SendRefundResultToDesktop(response);
+            await desktopHub.Clients.All
+                .RefundResponse(response);
         }
 
         public async Task SetSettingsResult(Response response)
         {
-            await dataSender.SendSetSettingsResultToDesktop(response);
+            await desktopHub.Clients
+                .All
+                .SetSettingsResponse(response);
+        }
+
+        public async Task ResultsResponse(Response<Core.Models.Results> response)
+        {
+            Response<ResultsPreview> responseToDesktop = new Response<ResultsPreview>()
+            {
+                deviceId = response.deviceId,
+                date = DateTime.UtcNow,
+                statusCode = response.statusCode,
+                stackTrace = response.stackTrace,
+                errorType = response.errorType,
+                message = response.message,
+            };
+
+            if (response.statusCode == 200)
+            {
+                int newId = await resultsService.SaveResults(response.data!);
+
+                responseToDesktop.data = new ResultsPreview()
+                {
+                    id = newId,
+                    localDate = response.date.ToLocalTime(),
+                };
+            }
+
+            await desktopHub.Clients.All.NewResults(responseToDesktop);
         }
 
         public override async Task OnDisconnectedAsync(Exception? exception)
@@ -90,7 +126,14 @@ namespace KioskService.WEB.Hubs
 
             connectionStorage.Delete(deviceId);
 
-            await dataSender.NotifyDesktopAboutKioskDisconnect(deviceId);
+            Response<string> response = new Response<string>()
+            {
+                statusCode = 200,
+                data = deviceId,
+                date = DateTime.UtcNow
+            };
+
+            await desktopHub.Clients.All.KioskDisconnected(response);
 
             logger.LogInformation($"Киоск {deviceId} отключён");
 

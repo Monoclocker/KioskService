@@ -1,5 +1,5 @@
 ﻿using KioskService.Core.DTO;
-using KioskService.WEB.Utils;
+using KioskService.WEB.HubInterfaces;
 using Microsoft.AspNetCore.SignalR;
 
 namespace KioskService.WEB.HubFilters
@@ -26,17 +26,19 @@ namespace KioskService.WEB.HubFilters
                 logger.LogError(ex.GetType().ToString());
                 logger.LogError(ex.StackTrace);
 
-                Response<object> response = new Response<object>()
+                Response response = new Response()
                 {
                     message = "Произошла ошибка при обработке события клиента",
                     stackTrace = stackTrace,
-                    statusCode = 500,
-                    data = ex.Data
+                    statusCode = 500
                 };
 
+                var hub = invocationContext.Hub as Hub<IDesktopHub>;
 
-                await invocationContext.Hub.Clients
-                    .All.SendAsync(DesktopEventsNames.KioskErrorEvent, response);
+                if (hub != null)
+                {
+                    await hub.Clients.All.Error(response);
+                }
 
                 return null;
             }

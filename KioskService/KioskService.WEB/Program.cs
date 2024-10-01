@@ -19,7 +19,8 @@ namespace KioskService.WEB
 
             builder.Services.AddSignalR(options =>
             {
-                options.KeepAliveInterval = TimeSpan.MaxValue;
+                options.KeepAliveInterval = TimeSpan.FromMinutes(int.MaxValue / 2);
+                options.ClientTimeoutInterval = TimeSpan.FromMinutes(int.MaxValue);
             })
             .AddHubOptions<KioskHub>(configurator =>
             {

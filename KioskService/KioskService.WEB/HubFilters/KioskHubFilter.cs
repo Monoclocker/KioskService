@@ -1,19 +1,24 @@
 ﻿using KioskService.Core.DTO;
+using KioskService.WEB.HubInterfaces;
 using KioskService.WEB.Hubs;
-using KioskService.WEB.Utils;
+using KioskService.WEB.Interfaces;
 using Microsoft.AspNetCore.SignalR;
-using System.Text.Json;
 
 namespace KioskService.WEB.HubFilters
 {
     public class KioskHubFilter : IHubFilter
     {
-        IHubContext<DesktopHub> desktopHub;
+        IHubContext<DesktopHub, IDesktopHub> desktopHub;
         ILogger<KioskHubFilter> logger;
-        public KioskHubFilter(IHubContext<DesktopHub> desktopHub, ILogger<KioskHubFilter> logger)
+        IConnectionStorage connectionStorage;
+
+        public KioskHubFilter(IHubContext<DesktopHub, IDesktopHub> desktopHub, 
+            ILogger<KioskHubFilter> logger,
+            IConnectionStorage connectionStorage)
         {
             this.desktopHub = desktopHub;
             this.logger = logger;
+            this.connectionStorage = connectionStorage;
         }
 
         public async ValueTask<object?> InvokeMethodAsync(HubInvocationContext invocationContext, 
@@ -31,21 +36,15 @@ namespace KioskService.WEB.HubFilters
                 logger.LogError(ex.GetType().ToString());
                 logger.LogError(ex.StackTrace);
 
-                Response<object> response = new Response<object>()
+                Response response = new Response()
                 {
                     message = "Произошла ошибка при обработке события киоска",
                     stackTrace = stackTrace,
-                    statusCode = 500,
-                    data = ex.Data
+                    statusCode = 500
                 };
 
-                string responseBody = JsonSerializer.Serialize(response);
 
-                Console.WriteLine(responseBody);
-
-                Console.WriteLine(invocationContext.HubMethod);
-
-                await desktopHub.Clients.All.SendAsync(DesktopEventsNames.KioskErrorEvent, responseBody);
+                await desktopHub.Clients.All.KioskError(response);
 
                 return null;
             }
@@ -54,33 +53,47 @@ namespace KioskService.WEB.HubFilters
         public async Task OnConnectedAsync(HubLifetimeContext context, Func<HubLifetimeContext, Task> next)
         {
             string? deviceId = context.Context.UserIdentifier;
+
+            Response response = new Response()
+            {
+                date = DateTime.UtcNow
+            };
+
             try
             {
                 if (deviceId == null)
                 {
-                    await context.Hub.Clients.Caller.SendAsync(KioskEventsNames.KioskConnectionErrorEvent);
-                    throw new Exception();
+                    response.statusCode = 400;
+                    response.message = "некорректное deviceId";
+
+                    var hub = context.Hub as Hub<IKioskHub>;
+
+                    if (hub == null)
+                    {
+                        logger.LogError("Ошибка при оповещении клиента");
+                        return;
+                    }
+
+                    await hub.Clients.All.KioskConnectionError(response);
+
+                    return;
                 }
+
+                connectionStorage.Add(deviceId);
+
                 await next(context);
+
             }
             catch(Exception ex)
             {
+                logger.LogError(ex.Message);
                 string? stackTrace = ex.StackTrace;
 
-                Response<object> response = new Response<object>()
-                {
-                    message = "Произошла ошибка при обработке события киоска",
-                    stackTrace = stackTrace,
-                    statusCode = 500,
-                    data = ex.Data
-                };
+                response.message = "Произошла ошибка при обработке события киоска";
+                response.stackTrace = stackTrace;
+                response.statusCode = 500;
 
-                string responseBody = JsonSerializer.Serialize(response);
-
-                Console.WriteLine(responseBody);
-
-
-                await desktopHub.Clients.All.SendAsync(DesktopEventsNames.KioskErrorEvent, responseBody);
+                await desktopHub.Clients.All.KioskError(response);
 
                 await Task.CompletedTask;
             }
