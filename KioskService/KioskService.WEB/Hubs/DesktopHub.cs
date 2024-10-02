@@ -99,7 +99,7 @@ namespace KioskService.WEB.Hubs
         }
         public async Task GetPreviousResults(Request<int> request)
         {
-            int pageNum = request.data <= 0 ? 0 : request.data;
+            int pageNum = request.data <= 0 ? 1 : request.data;
 
             PaginatedList<ResultsPreview> page 
                 = await resultsService.GetPreviousResults(request.deviceId, pageNum);
@@ -117,7 +117,7 @@ namespace KioskService.WEB.Hubs
         }
         public async Task GetPreviousPayment(Request<int> request)
         {
-            int pageNum = request.data <= 0 ? 0 : request.data;
+            int pageNum = request.data <= 0 ? 1 : request.data;
 
             PaginatedList<PaymentPreview> page
                 = await paymentService.GetPreviousTransactions(request.deviceId, pageNum);
@@ -133,7 +133,7 @@ namespace KioskService.WEB.Hubs
 
             await Clients.Caller.SavedTransactions(response);
         }
-        public async Task SendSetings(Request<Settings> request)
+        public async Task SendSettings(Request<object> request)
         {
             await kioskHub.Clients
                 .User(request.deviceId)

@@ -29,6 +29,7 @@ namespace KioskService.Persistance.Mappers
                 localTime = entity.TimeStamp.ToLocalTime(),
                 paymentObjects = entity.PaymentObjects,
                 paymentWay = entity.PaymentWay,
+                
                 check = checkB64
             };
         }

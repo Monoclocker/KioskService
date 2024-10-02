@@ -2,3 +2,763 @@
 27.09.2024 13:15:53: Application started. Press Ctrl+C to shut down.
 27.09.2024 13:15:53: Hosting environment: Development
 27.09.2024 13:15:53: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+01.10.2024 15:05:48: Now listening on: http://localhost:5238
+01.10.2024 15:05:48: Application started. Press Ctrl+C to shut down.
+01.10.2024 15:05:48: Hosting environment: Development
+01.10.2024 15:05:48: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+01.10.2024 17:22:15: Now listening on: http://localhost:5238
+01.10.2024 17:22:15: Application started. Press Ctrl+C to shut down.
+01.10.2024 17:22:15: Hosting environment: Development
+01.10.2024 17:22:15: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+01.10.2024 17:27:17: Киоск  отключён
+01.10.2024 17:28:00: Киоск 1 отключён
+01.10.2024 17:28:31: Киоск 1 отключён
+01.10.2024 17:29:02: Киоск 1 отключён
+01.10.2024 17:29:33: Киоск 1 отключён
+01.10.2024 17:30:03: Приложение без идентификатора отключено
+01.10.2024 17:30:04: Киоск 1 отключён
+01.10.2024 17:30:34: Приложение без идентификатора отключено
+01.10.2024 17:30:35: Киоск 1 отключён
+01.10.2024 17:31:05: Приложение без идентификатора отключено
+01.10.2024 17:31:35: Приложение без идентификатора отключено
+01.10.2024 17:31:40: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:31:40: System.NullReferenceException
+01.10.2024 17:31:40:    at KioskService.Persistance.Mappers.PaymentMapper.MapToDB(Payment entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\PaymentMapper.cs:line 40
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 77
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:32:10: Приложение без идентификатора отключено
+01.10.2024 17:32:10: Киоск 1 отключён
+01.10.2024 17:32:40: Приложение без идентификатора отключено
+01.10.2024 17:32:41: Киоск 1 отключён
+01.10.2024 17:33:11: Приложение без идентификатора отключено
+01.10.2024 17:33:12: Киоск 1 отключён
+01.10.2024 17:33:41: Now listening on: http://localhost:5238
+01.10.2024 17:33:41: Application started. Press Ctrl+C to shut down.
+01.10.2024 17:33:41: Hosting environment: Development
+01.10.2024 17:33:41: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+01.10.2024 17:33:45: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:33:45: System.NullReferenceException
+01.10.2024 17:33:45:    at KioskService.Persistance.Mappers.PaymentMapper.MapToDB(Payment entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\PaymentMapper.cs:line 40
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 77
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:33:54: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:33:54: System.NullReferenceException
+01.10.2024 17:33:54:    at KioskService.Persistance.Mappers.PaymentMapper.MapToDB(Payment entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\PaymentMapper.cs:line 40
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 77
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:34:24: Приложение без идентификатора отключено
+01.10.2024 17:34:25: Киоск 1 отключён
+01.10.2024 17:34:46: Now listening on: http://localhost:5238
+01.10.2024 17:34:46: Application started. Press Ctrl+C to shut down.
+01.10.2024 17:34:46: Hosting environment: Development
+01.10.2024 17:34:46: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+01.10.2024 17:34:52: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:34:52: System.NullReferenceException
+01.10.2024 17:34:52:    at KioskService.Persistance.Mappers.PaymentMapper.MapToDB(Payment entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\PaymentMapper.cs:line 40
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 77
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:34:54: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:34:54: System.NullReferenceException
+01.10.2024 17:34:54:    at KioskService.Persistance.Mappers.PaymentMapper.MapToDB(Payment entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\PaymentMapper.cs:line 40
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 77
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:35:24: Киоск 1 отключён
+01.10.2024 17:35:24: Приложение без идентификатора отключено
+01.10.2024 17:35:54: Приложение без идентификатора отключено
+01.10.2024 17:35:54: Киоск 1 отключён
+01.10.2024 17:36:24: Приложение без идентификатора отключено
+01.10.2024 17:36:25: Киоск 1 отключён
+01.10.2024 17:36:55: Приложение без идентификатора отключено
+01.10.2024 17:36:56: Киоск 1 отключён
+01.10.2024 17:37:26: Приложение без идентификатора отключено
+01.10.2024 17:37:27: Киоск 1 отключён
+01.10.2024 17:37:48: Failed executing DbCommand (143ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = Object), @p5='?', @p6='?', @p7='?' (DbType = Double), @p8='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Payment" ("BankId", "Check", "DeviceId", "Organization", "PaymentObjects", "PaymentWay", "Status", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id", "IsValid";
+01.10.2024 17:37:48: An exception occurred in the database while saving changes for context type 'KioskService.Persistance.Database.DatabaseContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "DeviceId" отношения "Payment" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "DeviceId" отношения "Payment" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Payment
+    ColumnName: DeviceId
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+01.10.2024 17:37:48: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:37:48: Microsoft.EntityFrameworkCore.DbUpdateException
+01.10.2024 17:37:48:    at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 82
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:38:12: Now listening on: http://localhost:5238
+01.10.2024 17:38:12: Application started. Press Ctrl+C to shut down.
+01.10.2024 17:38:12: Hosting environment: Development
+01.10.2024 17:38:12: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+01.10.2024 17:38:16: Failed executing DbCommand (127ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = Object), @p5='?', @p6='?', @p7='?' (DbType = Double), @p8='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Payment" ("BankId", "Check", "DeviceId", "Organization", "PaymentObjects", "PaymentWay", "Status", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id", "IsValid";
+01.10.2024 17:38:16: An exception occurred in the database while saving changes for context type 'KioskService.Persistance.Database.DatabaseContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Npgsql.PostgresException (0x80004005): 23502: значение NULL в столбце "DeviceId" отношения "Payment" нарушает ограничение NOT NULL
+
+DETAIL: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 23502
+    MessageText: значение NULL в столбце "DeviceId" отношения "Payment" нарушает ограничение NOT NULL
+    Detail: Detail redacted as it may contain sensitive data. Specify 'Include Error Detail' in the connection string to include this information.
+    SchemaName: public
+    TableName: Payment
+    ColumnName: DeviceId
+    File: execMain.c
+    Line: 2009
+    Routine: ExecConstraints
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+01.10.2024 17:38:17: При вызове метода SavePayment произошла ошибка
+01.10.2024 17:38:17: Microsoft.EntityFrameworkCore.DbUpdateException
+01.10.2024 17:38:17:    at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at KioskService.Persistance.Services.PaymentService.SavePayment(Payment payment) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 82
+   at KioskService.WEB.Hubs.KioskHub.SavePayment(Request`1 body) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 52
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+01.10.2024 17:38:47: Приложение без идентификатора отключено
+01.10.2024 17:38:47: Киоск 1 отключён
+01.10.2024 17:39:17: Приложение без идентификатора отключено
+01.10.2024 17:39:17: Киоск 1 отключён
+01.10.2024 17:39:47: Приложение без идентификатора отключено
+01.10.2024 17:39:48: Киоск 1 отключён
+01.10.2024 17:39:51: Executed DbCommand (55ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = Object), @p5='?', @p6='?', @p7='?' (DbType = Double), @p8='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Payment" ("BankId", "Check", "DeviceId", "Organization", "PaymentObjects", "PaymentWay", "Status", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id", "IsValid";
+01.10.2024 17:40:21: Приложение без идентификатора отключено
+01.10.2024 17:40:22: Киоск 1 отключён
+01.10.2024 17:40:45: Приложение без идентификатора отключено
+01.10.2024 17:40:46: Киоск 1 отключён
+02.10.2024 10:26:43: Now listening on: http://localhost:5238
+02.10.2024 10:26:43: Application started. Press Ctrl+C to shut down.
+02.10.2024 10:26:43: Hosting environment: Development
+02.10.2024 10:26:43: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 10:28:03: Now listening on: http://localhost:5238
+02.10.2024 10:28:03: Application started. Press Ctrl+C to shut down.
+02.10.2024 10:28:03: Hosting environment: Development
+02.10.2024 10:28:03: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 10:30:13: Приложение без идентификатора отключено
+02.10.2024 10:30:21: Киоск  отключён
+02.10.2024 10:30:59: Приложение без идентификатора отключено
+02.10.2024 10:30:59: Киоск 1 отключён
+02.10.2024 10:31:29: Приложение без идентификатора отключено
+02.10.2024 10:31:30: Киоск 1 отключён
+02.10.2024 10:32:00: Приложение без идентификатора отключено
+02.10.2024 10:32:01: Киоск 1 отключён
+02.10.2024 10:32:31: Приложение без идентификатора отключено
+02.10.2024 10:32:32: Киоск 1 отключён
+02.10.2024 10:33:02: Приложение без идентификатора отключено
+02.10.2024 10:33:03: Киоск 1 отключён
+02.10.2024 10:33:33: Приложение без идентификатора отключено
+02.10.2024 10:33:34: Киоск 1 отключён
+02.10.2024 10:34:04: Приложение без идентификатора отключено
+02.10.2024 10:34:05: Киоск 1 отключён
+02.10.2024 10:34:35: Приложение без идентификатора отключено
+02.10.2024 10:34:36: Киоск 1 отключён
+02.10.2024 10:35:06: Приложение без идентификатора отключено
+02.10.2024 10:35:07: Киоск 1 отключён
+02.10.2024 10:35:37: Приложение без идентификатора отключено
+02.10.2024 10:35:38: Киоск 1 отключён
+02.10.2024 10:36:08: Приложение без идентификатора отключено
+02.10.2024 10:36:09: Киоск 1 отключён
+02.10.2024 10:36:39: Приложение без идентификатора отключено
+02.10.2024 10:36:40: Киоск 1 отключён
+02.10.2024 10:37:10: Приложение без идентификатора отключено
+02.10.2024 10:37:10: Киоск 1 отключён
+02.10.2024 10:37:40: Приложение без идентификатора отключено
+02.10.2024 10:37:41: Киоск 1 отключён
+02.10.2024 10:38:11: Киоск 1 отключён
+02.10.2024 10:38:11: Приложение без идентификатора отключено
+02.10.2024 10:38:41: Приложение без идентификатора отключено
+02.10.2024 10:38:41: Киоск 1 отключён
+02.10.2024 10:39:11: Приложение без идентификатора отключено
+02.10.2024 10:39:12: Киоск 1 отключён
+02.10.2024 10:39:42: Киоск 1 отключён
+02.10.2024 10:39:42: Приложение без идентификатора отключено
+02.10.2024 10:40:12: Киоск 1 отключён
+02.10.2024 10:40:42: Киоск 1 отключён
+02.10.2024 10:40:42: Приложение без идентификатора отключено
+02.10.2024 10:40:57: Executed DbCommand (139ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = Object), @p5='?', @p6='?', @p7='?' (DbType = Double), @p8='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Payment" ("BankId", "Check", "DeviceId", "Organization", "PaymentObjects", "PaymentWay", "Status", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id", "IsValid";
+02.10.2024 10:41:27: Приложение без идентификатора отключено
+02.10.2024 10:41:28: Киоск 1 отключён
+02.10.2024 10:41:58: Приложение без идентификатора отключено
+02.10.2024 10:41:59: Киоск 1 отключён
+02.10.2024 10:42:29: Приложение без идентификатора отключено
+02.10.2024 10:42:30: Киоск 1 отключён
+02.10.2024 10:43:00: Приложение без идентификатора отключено
+02.10.2024 10:43:01: Киоск 1 отключён
+02.10.2024 10:43:31: Приложение без идентификатора отключено
+02.10.2024 10:43:32: Киоск 1 отключён
+02.10.2024 10:44:02: Приложение без идентификатора отключено
+02.10.2024 10:44:03: Киоск 1 отключён
+02.10.2024 10:44:33: Приложение без идентификатора отключено
+02.10.2024 10:44:34: Киоск 1 отключён
+02.10.2024 10:45:04: Приложение без идентификатора отключено
+02.10.2024 10:45:05: Киоск 1 отключён
+02.10.2024 10:45:35: Приложение без идентификатора отключено
+02.10.2024 10:45:36: Киоск 1 отключён
+02.10.2024 10:46:06: Приложение без идентификатора отключено
+02.10.2024 10:46:07: Киоск 1 отключён
+02.10.2024 10:46:10: Now listening on: http://localhost:5238
+02.10.2024 10:46:10: Application started. Press Ctrl+C to shut down.
+02.10.2024 10:46:10: Hosting environment: Development
+02.10.2024 10:46:10: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 10:46:45: Киоск 1 отключён
+02.10.2024 10:48:03: Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+02.10.2024 10:48:03: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+02.10.2024 10:48:03: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+02.10.2024 10:48:03: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1 FROM pg_catalog.pg_class c
+    JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace
+    WHERE n.nspname='public' AND
+          c.relname='__EFMigrationsHistory'
+)
+02.10.2024 10:48:03: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+02.10.2024 10:48:03: Applying migration '20241002074732_Results'.
+02.10.2024 10:48:03: Executed DbCommand (12ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE "Payment" ALTER COLUMN "TimeStamp" SET DEFAULT TIMESTAMPTZ '2024-10-02T07:47:31.883979Z';
+02.10.2024 10:48:03: Executed DbCommand (41ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE "Results" (
+    "Id" integer GENERATED BY DEFAULT AS IDENTITY,
+    "DeviceId" text NOT NULL,
+    "Sum" double precision NOT NULL,
+    "TimeStamp" timestamp with time zone NOT NULL,
+    "Check" text,
+    CONSTRAINT "PK_Results" PRIMARY KEY ("Id")
+);
+02.10.2024 10:48:03: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20241002074732_Results', '8.0.8');
+02.10.2024 10:48:19: Now listening on: http://localhost:5238
+02.10.2024 10:48:19: Application started. Press Ctrl+C to shut down.
+02.10.2024 10:48:19: Hosting environment: Development
+02.10.2024 10:48:19: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 10:49:12: Киоск 1 отключён
+02.10.2024 10:49:16: Executed DbCommand (127ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?', @p4='?' (DbType = Object), @p5='?', @p6='?', @p7='?' (DbType = Double), @p8='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Payment" ("BankId", "Check", "DeviceId", "Organization", "PaymentObjects", "PaymentWay", "Status", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id", "IsValid";
+02.10.2024 10:49:46: Приложение без идентификатора отключено
+02.10.2024 10:49:47: Киоск 1 отключён
+02.10.2024 10:50:17: Приложение без идентификатора отключено
+02.10.2024 10:50:18: Киоск 1 отключён
+02.10.2024 10:50:48: Приложение без идентификатора отключено
+02.10.2024 10:50:49: Киоск 1 отключён
+02.10.2024 10:51:19: Приложение без идентификатора отключено
+02.10.2024 10:51:20: Киоск 1 отключён
+02.10.2024 10:51:50: Приложение без идентификатора отключено
+02.10.2024 10:51:51: Киоск 1 отключён
+02.10.2024 10:52:21: Приложение без идентификатора отключено
+02.10.2024 10:52:22: Киоск 1 отключён
+02.10.2024 10:52:52: Приложение без идентификатора отключено
+02.10.2024 10:52:53: Киоск 1 отключён
+02.10.2024 10:53:23: Приложение без идентификатора отключено
+02.10.2024 10:53:24: Киоск 1 отключён
+02.10.2024 10:53:54: Приложение без идентификатора отключено
+02.10.2024 10:53:55: Киоск 1 отключён
+02.10.2024 10:54:26: Киоск 1 отключён
+02.10.2024 10:54:37: Приложение без идентификатора отключено
+02.10.2024 10:55:23: Киоск 1 отключён
+02.10.2024 10:55:23: Приложение без идентификатора отключено
+02.10.2024 10:56:23: Киоск 1 отключён
+02.10.2024 10:56:53: Киоск 1 отключён
+02.10.2024 10:56:53: Приложение без идентификатора отключено
+02.10.2024 10:57:18: Executed DbCommand (3ms) [Parameters=[@__TransactionId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id", p."BankId", p."Check", p."DeviceId", p."IsValid", p."Organization", p."PaymentObjects", p."PaymentWay", p."Status", p."Sum", p."TimeStamp"
+FROM "Payment" AS p
+WHERE p."Id" = @__TransactionId_0
+LIMIT 1
+02.10.2024 10:57:18: Executed DbCommand (8ms) [Parameters=[@p10='?' (DbType = Int32), @p0='?', @p1='?', @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Object), @p6='?', @p7='?', @p8='?' (DbType = Double), @p9='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+UPDATE "Payment" SET "BankId" = @p0, "Check" = @p1, "DeviceId" = @p2, "IsValid" = @p3, "Organization" = @p4, "PaymentObjects" = @p5, "PaymentWay" = @p6, "Status" = @p7, "Sum" = @p8, "TimeStamp" = @p9
+WHERE "Id" = @p10;
+02.10.2024 10:57:48: Приложение без идентификатора отключено
+02.10.2024 10:57:48: Киоск 1 отключён
+02.10.2024 10:58:19: Киоск 1 отключён
+02.10.2024 10:58:49: Киоск 1 отключён
+02.10.2024 10:58:49: Приложение без идентификатора отключено
+02.10.2024 10:59:19: Киоск 1 отключён
+02.10.2024 10:59:19: Приложение без идентификатора отключено
+02.10.2024 10:59:49: Приложение без идентификатора отключено
+02.10.2024 10:59:50: Киоск 1 отключён
+02.10.2024 11:00:20: Приложение без идентификатора отключено
+02.10.2024 11:00:21: Киоск 1 отключён
+02.10.2024 11:00:51: Приложение без идентификатора отключено
+02.10.2024 11:00:52: Киоск 1 отключён
+02.10.2024 11:01:22: Приложение без идентификатора отключено
+02.10.2024 11:01:23: Киоск 1 отключён
+02.10.2024 11:01:58: Киоск 1 отключён
+02.10.2024 11:02:28: Приложение без идентификатора отключено
+02.10.2024 11:02:29: Киоск 1 отключён
+02.10.2024 11:02:59: Приложение без идентификатора отключено
+02.10.2024 11:03:00: Киоск 1 отключён
+02.10.2024 11:03:30: Приложение без идентификатора отключено
+02.10.2024 11:03:31: Киоск 1 отключён
+02.10.2024 11:04:01: Приложение без идентификатора отключено
+02.10.2024 11:04:02: Киоск 1 отключён
+02.10.2024 11:04:32: Приложение без идентификатора отключено
+02.10.2024 11:04:33: Киоск 1 отключён
+02.10.2024 11:05:03: Приложение без идентификатора отключено
+02.10.2024 11:05:04: Киоск 1 отключён
+02.10.2024 11:05:34: Приложение без идентификатора отключено
+02.10.2024 11:05:35: Киоск 1 отключён
+02.10.2024 11:06:01: При вызове метода ResultsResponse произошла ошибка
+02.10.2024 11:06:01: System.FormatException
+02.10.2024 11:06:01:    at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at KioskService.Persistance.Mappers.ResultsMapper.MapToDB(Results entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\ResultsMapper.cs:line 35
+   at KioskService.Persistance.Services.ResultsService.SaveResults(Results dto) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\ResultsService.cs:line 58
+   at KioskService.WEB.Hubs.KioskHub.ResultsResponse(Response`1 response) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\KioskHub.cs:line 107
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.KioskHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\KioskHubFilter.cs:line 29
+02.10.2024 11:06:31: Приложение без идентификатора отключено
+02.10.2024 11:06:32: Киоск 1 отключён
+02.10.2024 11:07:02: Киоск 1 отключён
+02.10.2024 11:07:02: Приложение без идентификатора отключено
+02.10.2024 11:07:05: Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Double), @p3='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Results" ("Check", "DeviceId", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+02.10.2024 11:07:35: Приложение без идентификатора отключено
+02.10.2024 11:07:36: Киоск 1 отключён
+02.10.2024 11:08:06: Приложение без идентификатора отключено
+02.10.2024 11:08:07: Киоск 1 отключён
+02.10.2024 11:08:37: Приложение без идентификатора отключено
+02.10.2024 11:08:38: Киоск 1 отключён
+02.10.2024 11:09:08: Приложение без идентификатора отключено
+02.10.2024 11:09:09: Киоск 1 отключён
+02.10.2024 11:09:39: Приложение без идентификатора отключено
+02.10.2024 11:09:40: Киоск 1 отключён
+02.10.2024 11:09:54: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Payment" AS p
+02.10.2024 11:09:54: Executed DbCommand (2ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id" AS id, p."Sum" AS sum, p."TimeStamp"::timestamp AS "localDate"
+FROM "Payment" AS p
+WHERE p."IsValid" AND p."DeviceId" = @__deviceId_0
+ORDER BY p."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:10:11: Киоск 1 отключён
+02.10.2024 11:10:41: Приложение без идентификатора отключено
+02.10.2024 11:10:42: Киоск 1 отключён
+02.10.2024 11:11:11: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Payment" AS p
+02.10.2024 11:11:11: Executed DbCommand (4ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id" AS id, p."Sum" AS sum, p."TimeStamp"::timestamp AS "localDate"
+FROM "Payment" AS p
+WHERE p."IsValid" AND p."DeviceId" = @__deviceId_0
+ORDER BY p."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:11:13: Киоск 1 отключён
+02.10.2024 11:11:27: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Payment" AS p
+02.10.2024 11:11:27: Executed DbCommand (1ms) [Parameters=[@__deviceId_0='?', @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id" AS id, p."Sum" AS sum, p."TimeStamp"::timestamp AS "localDate"
+FROM "Payment" AS p
+WHERE p."IsValid" AND p."DeviceId" = @__deviceId_0
+ORDER BY p."TimeStamp" DESC
+LIMIT @__p_1 OFFSET @__p_1
+02.10.2024 11:11:33: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Payment" AS p
+02.10.2024 11:11:33: Failed executing DbCommand (49ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id" AS id, p."Sum" AS sum, p."TimeStamp"::timestamp AS "localDate"
+FROM "Payment" AS p
+WHERE p."IsValid" AND p."DeviceId" = @__deviceId_0
+ORDER BY p."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:11:33: An exception occurred while iterating over the results of a query for context type 'KioskService.Persistance.Database.DatabaseContext'.
+Npgsql.PostgresException (0x80004005): 2201X: OFFSET не может быть отрицательным
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ОШИБКА
+    SqlState: 2201X
+    MessageText: OFFSET не может быть отрицательным
+    File: nodeLimit.c
+    Line: 374
+    Routine: recompute_limits
+02.10.2024 11:11:33: При вызове метода GetPreviousPayment произошла ошибка
+02.10.2024 11:11:33: Npgsql.PostgresException
+02.10.2024 11:11:33:    at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at KioskService.Persistance.Services.PaymentService.GetPreviousTransactions(String deviceId, Int32 page) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\PaymentService.cs:line 41
+   at KioskService.WEB.Hubs.DesktopHub.GetPreviousPayment(Request`1 request) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\DesktopHub.cs:line 122
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.DesktopHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\DesktopHubFilter.cs:line 19
+02.10.2024 11:11:44: Киоск 1 отключён
+02.10.2024 11:12:14: Приложение без идентификатора отключено
+02.10.2024 11:12:15: Киоск 1 отключён
+02.10.2024 11:12:31: Now listening on: http://localhost:5238
+02.10.2024 11:12:31: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:12:31: Hosting environment: Development
+02.10.2024 11:12:31: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:13:08: Приложение без идентификатора отключено
+02.10.2024 11:13:09: Киоск 1 отключён
+02.10.2024 11:13:14: Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Payment" AS p
+02.10.2024 11:13:14: Executed DbCommand (10ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id" AS id, p."Sum" AS sum, p."TimeStamp"::timestamp AS "localDate"
+FROM "Payment" AS p
+WHERE p."IsValid" AND p."DeviceId" = @__deviceId_0
+ORDER BY p."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:13:40: Киоск 1 отключён
+02.10.2024 11:14:10: Приложение без идентификатора отключено
+02.10.2024 11:14:11: Киоск 1 отключён
+02.10.2024 11:14:35: Executed DbCommand (1ms) [Parameters=[@__TransactionId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id", p."BankId", p."Check", p."DeviceId", p."IsValid", p."Organization", p."PaymentObjects", p."PaymentWay", p."Status", p."Sum", p."TimeStamp"
+FROM "Payment" AS p
+WHERE p."Id" = @__TransactionId_0
+LIMIT 1
+02.10.2024 11:14:42: Киоск 1 отключён
+02.10.2024 11:15:12: Киоск 1 отключён
+02.10.2024 11:15:12: Приложение без идентификатора отключено
+02.10.2024 11:15:42: Приложение без идентификатора отключено
+02.10.2024 11:15:43: Киоск 1 отключён
+02.10.2024 11:16:13: Приложение без идентификатора отключено
+02.10.2024 11:16:14: Киоск 1 отключён
+02.10.2024 11:16:44: Приложение без идентификатора отключено
+02.10.2024 11:16:45: Киоск 1 отключён
+02.10.2024 11:17:15: Приложение без идентификатора отключено
+02.10.2024 11:17:16: Киоск 1 отключён
+02.10.2024 11:17:46: Приложение без идентификатора отключено
+02.10.2024 11:17:47: Киоск 1 отключён
+02.10.2024 11:18:17: Приложение без идентификатора отключено
+02.10.2024 11:18:18: Киоск 1 отключён
+02.10.2024 11:18:48: Приложение без идентификатора отключено
+02.10.2024 11:18:49: Киоск 1 отключён
+02.10.2024 11:18:50: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Results" AS r
+02.10.2024 11:18:50: Executed DbCommand (1ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id" AS id, r."TimeStamp"::timestamp AS "localDate"
+FROM "Results" AS r
+WHERE r."DeviceId" = @__deviceId_0
+ORDER BY r."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:18:59: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Results" AS r
+02.10.2024 11:18:59: Executed DbCommand (1ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id" AS id, r."TimeStamp"::timestamp AS "localDate"
+FROM "Results" AS r
+WHERE r."DeviceId" = @__deviceId_0
+ORDER BY r."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:19:04: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Results" AS r
+02.10.2024 11:19:04: Executed DbCommand (1ms) [Parameters=[@__deviceId_0='?', @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id" AS id, r."TimeStamp"::timestamp AS "localDate"
+FROM "Results" AS r
+WHERE r."DeviceId" = @__deviceId_0
+ORDER BY r."TimeStamp" DESC
+LIMIT @__p_1 OFFSET @__p_1
+02.10.2024 11:19:20: Киоск 1 отключён
+02.10.2024 11:19:50: Приложение без идентификатора отключено
+02.10.2024 11:19:51: Киоск 1 отключён
+02.10.2024 11:19:55: Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."Check", r."DeviceId", r."Sum", r."TimeStamp"
+FROM "Results" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+02.10.2024 11:19:55: При вызове метода GetResults произошла ошибка
+02.10.2024 11:19:55: System.FormatException
+02.10.2024 11:19:55:    at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at KioskService.Persistance.Mappers.ResultsMapper.MapToCore(ResultsEntity entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\ResultsMapper.cs:line 16
+   at KioskService.Persistance.Services.ResultsService.GetResults(Int32 id) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\ResultsService.cs:line 50
+   at KioskService.WEB.Hubs.DesktopHub.GetResults(Request`1 request) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\DesktopHub.cs:line 80
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.DesktopHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\DesktopHubFilter.cs:line 19
+02.10.2024 11:20:22: Киоск 1 отключён
+02.10.2024 11:20:52: Приложение без идентификатора отключено
+02.10.2024 11:20:53: Киоск 1 отключён
+02.10.2024 11:21:23: Приложение без идентификатора отключено
+02.10.2024 11:21:24: Киоск 1 отключён
+02.10.2024 11:21:54: Приложение без идентификатора отключено
+02.10.2024 11:21:55: Киоск 1 отключён
+02.10.2024 11:22:25: Приложение без идентификатора отключено
+02.10.2024 11:22:26: Киоск 1 отключён
+02.10.2024 11:22:56: Приложение без идентификатора отключено
+02.10.2024 11:22:57: Киоск 1 отключён
+02.10.2024 11:23:27: Приложение без идентификатора отключено
+02.10.2024 11:23:28: Киоск 1 отключён
+02.10.2024 11:23:58: Приложение без идентификатора отключено
+02.10.2024 11:23:59: Киоск 1 отключён
+02.10.2024 11:24:14: Now listening on: http://localhost:5238
+02.10.2024 11:24:14: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:24:14: Hosting environment: Development
+02.10.2024 11:24:14: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:24:19: Executed DbCommand (46ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."Check", r."DeviceId", r."Sum", r."TimeStamp"
+FROM "Results" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+02.10.2024 11:24:19: При вызове метода GetResults произошла ошибка
+02.10.2024 11:24:19: System.FormatException
+02.10.2024 11:24:19:    at System.Convert.FromBase64CharPtr(Char* inputPtr, Int32 inputLength)
+   at System.Convert.FromBase64String(String s)
+   at KioskService.Persistance.Mappers.ResultsMapper.MapToCore(ResultsEntity entity) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Mappers\ResultsMapper.cs:line 16
+   at KioskService.Persistance.Services.ResultsService.GetResults(Int32 id) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.Persistance\Services\ResultsService.cs:line 50
+   at KioskService.WEB.Hubs.DesktopHub.GetResults(Request`1 request) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\Hubs\DesktopHub.cs:line 80
+   at Microsoft.AspNetCore.SignalR.Internal.DefaultHubDispatcher`1.ExecuteMethod(ObjectMethodExecutor methodExecutor, Hub hub, Object[] arguments)
+   at KioskService.WEB.HubFilters.DesktopHubFilter.InvokeMethodAsync(HubInvocationContext invocationContext, Func`2 next) in C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB\HubFilters\DesktopHubFilter.cs:line 19
+02.10.2024 11:24:46: Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."Check", r."DeviceId", r."Sum", r."TimeStamp"
+FROM "Results" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+02.10.2024 11:24:49: Киоск 1 отключён
+02.10.2024 11:25:19: Приложение без идентификатора отключено
+02.10.2024 11:25:20: Киоск 1 отключён
+02.10.2024 11:25:50: Приложение без идентификатора отключено
+02.10.2024 11:25:51: Киоск 1 отключён
+02.10.2024 11:26:21: Приложение без идентификатора отключено
+02.10.2024 11:26:22: Киоск 1 отключён
+02.10.2024 11:26:52: Приложение без идентификатора отключено
+02.10.2024 11:26:53: Киоск 1 отключён
+02.10.2024 11:27:23: Приложение без идентификатора отключено
+02.10.2024 11:27:24: Киоск 1 отключён
+02.10.2024 11:27:54: Приложение без идентификатора отключено
+02.10.2024 11:27:55: Киоск 1 отключён
+02.10.2024 11:28:25: Приложение без идентификатора отключено
+02.10.2024 11:28:26: Киоск 1 отключён
+02.10.2024 11:28:56: Приложение без идентификатора отключено
+02.10.2024 11:28:57: Киоск 1 отключён
+02.10.2024 11:29:27: Приложение без идентификатора отключено
+02.10.2024 11:29:28: Киоск 1 отключён
+02.10.2024 11:29:58: Приложение без идентификатора отключено
+02.10.2024 11:29:59: Киоск 1 отключён
+02.10.2024 11:30:29: Приложение без идентификатора отключено
+02.10.2024 11:30:30: Киоск 1 отключён
+02.10.2024 11:30:57: Now listening on: http://localhost:5238
+02.10.2024 11:30:57: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:30:57: Hosting environment: Development
+02.10.2024 11:30:57: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:31:19: Executed DbCommand (47ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."Check", r."DeviceId", r."Sum", r."TimeStamp"
+FROM "Results" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+02.10.2024 11:31:32: Киоск 1 отключён
+02.10.2024 11:32:02: Приложение без идентификатора отключено
+02.10.2024 11:32:03: Киоск 1 отключён
+02.10.2024 11:32:33: Приложение без идентификатора отключено
+02.10.2024 11:32:34: Киоск 1 отключён
+02.10.2024 11:32:46: Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?', @p2='?' (DbType = Double), @p3='?' (DbType = DateTime)], CommandType='Text', CommandTimeout='30']
+INSERT INTO "Results" ("Check", "DeviceId", "Sum", "TimeStamp")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "Id";
+02.10.2024 11:33:16: Приложение без идентификатора отключено
+02.10.2024 11:33:16: Киоск 1 отключён
+02.10.2024 11:33:46: Приложение без идентификатора отключено
+02.10.2024 11:33:47: Киоск 1 отключён
+02.10.2024 11:34:17: Приложение без идентификатора отключено
+02.10.2024 11:34:18: Киоск 1 отключён
+02.10.2024 11:34:48: Приложение без идентификатора отключено
+02.10.2024 11:34:49: Киоск 1 отключён
+02.10.2024 11:35:19: Приложение без идентификатора отключено
+02.10.2024 11:35:20: Киоск 1 отключён
+02.10.2024 11:35:50: Приложение без идентификатора отключено
+02.10.2024 11:35:51: Киоск 1 отключён
+02.10.2024 11:36:21: Приложение без идентификатора отключено
+02.10.2024 11:36:22: Киоск 1 отключён
+02.10.2024 11:36:53: Now listening on: http://localhost:5238
+02.10.2024 11:36:53: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:36:53: Hosting environment: Development
+02.10.2024 11:36:53: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:37:07: Executed DbCommand (50ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT r."Id", r."Check", r."DeviceId", r."Sum", r."TimeStamp"
+FROM "Results" AS r
+WHERE r."Id" = @__id_0
+LIMIT 1
+02.10.2024 11:37:27: Киоск 1 отключён
+02.10.2024 11:37:57: Приложение без идентификатора отключено
+02.10.2024 11:37:58: Киоск 1 отключён
+02.10.2024 11:38:28: Приложение без идентификатора отключено
+02.10.2024 11:38:29: Киоск 1 отключён
+02.10.2024 11:38:59: Приложение без идентификатора отключено
+02.10.2024 11:39:00: Киоск 1 отключён
+02.10.2024 11:39:30: Приложение без идентификатора отключено
+02.10.2024 11:39:31: Киоск 1 отключён
+02.10.2024 11:40:01: Приложение без идентификатора отключено
+02.10.2024 11:40:01: Киоск 1 отключён
+02.10.2024 11:40:30: Приложение без идентификатора отключено
+02.10.2024 11:40:32: Киоск 1 отключён
+02.10.2024 11:41:02: Киоск 1 отключён
+02.10.2024 11:41:32: Приложение без идентификатора отключено
+02.10.2024 11:41:33: Киоск 1 отключён
+02.10.2024 11:41:49: Now listening on: http://localhost:5238
+02.10.2024 11:41:49: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:41:49: Hosting environment: Development
+02.10.2024 11:41:49: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:42:44: Киоск 1 отключён
+02.10.2024 11:43:14: Киоск 1 отключён
+02.10.2024 11:43:45: Киоск 1 отключён
+02.10.2024 11:43:48: Приложение без идентификатора отключено
+02.10.2024 11:44:16: Киоск 1 отключён
+02.10.2024 11:44:39: Now listening on: http://localhost:5238
+02.10.2024 11:44:39: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:44:39: Hosting environment: Development
+02.10.2024 11:44:39: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:44:54: Приложение без идентификатора отключено
+02.10.2024 11:45:14: Киоск 1 отключён
+02.10.2024 11:45:45: Киоск 1 отключён
+02.10.2024 11:46:15: Приложение без идентификатора отключено
+02.10.2024 11:46:16: Киоск 1 отключён
+02.10.2024 11:46:46: Приложение без идентификатора отключено
+02.10.2024 11:46:47: Киоск 1 отключён
+02.10.2024 11:47:17: Приложение без идентификатора отключено
+02.10.2024 11:47:18: Киоск 1 отключён
+02.10.2024 11:47:31: Now listening on: http://localhost:5238
+02.10.2024 11:47:31: Application started. Press Ctrl+C to shut down.
+02.10.2024 11:47:31: Hosting environment: Development
+02.10.2024 11:47:31: Content root path: C:\Projects\Monoclocker\KioskService\KioskService\KioskService.WEB
+02.10.2024 11:48:07: Приложение без идентификатора отключено
+02.10.2024 11:48:07: Киоск 1 отключён
+02.10.2024 11:48:29: Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Payment" AS p
+02.10.2024 11:48:29: Executed DbCommand (14ms) [Parameters=[@__deviceId_0='?', @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT p."Id" AS id, p."Sum" AS sum, p."TimeStamp"::timestamp AS "localDate"
+FROM "Payment" AS p
+WHERE p."IsValid" AND p."DeviceId" = @__deviceId_0
+ORDER BY p."TimeStamp" DESC
+LIMIT @__p_2 OFFSET @__p_1
+02.10.2024 11:48:38: Киоск 1 отключён
+02.10.2024 11:49:08: Приложение без идентификатора отключено
+02.10.2024 11:49:08: Киоск 1 отключён
+02.10.2024 11:49:28: Киоск 1 отключён
+02.10.2024 11:49:58: Приложение без идентификатора отключено
+02.10.2024 11:50:28: Приложение без идентификатора отключено
+02.10.2024 11:50:58: Приложение без идентификатора отключено
+02.10.2024 11:51:28: Приложение без идентификатора отключено
+02.10.2024 11:51:58: Приложение без идентификатора отключено
+02.10.2024 11:52:28: Приложение без идентификатора отключено

@@ -1,4 +1,6 @@
-﻿namespace KioskService.Persistance.Entities
+﻿using KioskService.Core.Enums;
+
+namespace KioskService.Persistance.Entities
 {
     public class ResultsEntity
     {

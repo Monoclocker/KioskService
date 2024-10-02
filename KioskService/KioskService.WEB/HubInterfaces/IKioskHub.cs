@@ -6,7 +6,7 @@ namespace KioskService.WEB.HubInterfaces
     public interface IKioskHub
     {
         public Task KioskConnectionError(Response dto);
-        public Task SendSettings(Request<Settings> dto);
+        public Task SendSettings(Request<object> dto);
         public Task ProceedRefund(Request<int> dto);
         public Task ResultsRequest(Request dto);
 

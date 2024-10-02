@@ -47,7 +47,6 @@ namespace KioskService.WEB.Hubs
 
             await base.OnConnectedAsync();
         }
-
         public async Task SavePayment(Request<Payment> body)
         {
             int newPaymentId = await paymentService.SavePayment(body.data);
@@ -67,7 +66,6 @@ namespace KioskService.WEB.Hubs
 
             await desktopHub.Clients.All.SendSavePaymentResult(response);
         }
-
         public async Task RefundResult(Response<int> response) 
         {
             if (response.statusCode == 200)
@@ -86,14 +84,12 @@ namespace KioskService.WEB.Hubs
             await desktopHub.Clients.All
                 .RefundResponse(response);
         }
-
         public async Task SetSettingsResult(Response response)
         {
             await desktopHub.Clients
                 .All
                 .SetSettingsResponse(response);
         }
-
         public async Task ResultsResponse(Response<Core.Models.Results> response)
         {
             Response<ResultsPreview> responseToDesktop = new Response<ResultsPreview>()
@@ -119,7 +115,6 @@ namespace KioskService.WEB.Hubs
 
             await desktopHub.Clients.All.NewResults(responseToDesktop);
         }
-
         public override async Task OnDisconnectedAsync(Exception? exception)
         {
             string deviceId = Context.UserIdentifier!;

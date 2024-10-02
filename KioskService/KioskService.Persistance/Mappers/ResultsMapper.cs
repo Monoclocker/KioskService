@@ -32,7 +32,8 @@ namespace KioskService.Persistance.Mappers
 
             if (entity.check != null)
             {
-                checkB64 = Encoding.UTF8.GetString(Convert.FromBase64String(entity.check));
+                checkB64 = Convert.ToBase64String(
+                    Encoding.UTF8.GetBytes(entity.check));
             }
 
             return new ResultsEntity()
