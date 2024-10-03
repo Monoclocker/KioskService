@@ -14,21 +14,18 @@ namespace KioskService.WEB.Hubs
         ILogger<KioskHub> logger;
         IPaymentService paymentService;
         IResultsService resultsService;
-        IConnectionStorage connectionStorage;
 
         public KioskHub(
             IHubContext<DesktopHub, IDesktopHub> desktopHub,
             ILogger<KioskHub> logger,
             IPaymentService paymentService,
-            IResultsService resultsService,
-            IConnectionStorage connectionStorage
+            IResultsService resultsService
         ) 
         {
             this.desktopHub = desktopHub;
             this.logger = logger;
             this.paymentService = paymentService;
             this.resultsService = resultsService;
-            this.connectionStorage = connectionStorage;
         }
 
         public override async Task OnConnectedAsync()
@@ -119,17 +116,12 @@ namespace KioskService.WEB.Hubs
         {
             string deviceId = Context.UserIdentifier!;
 
-            connectionStorage.Delete(deviceId);
-
             Response<string> response = new Response<string>()
             {
                 statusCode = 200,
                 data = deviceId,
                 date = DateTime.UtcNow
             };
-
-
-            logger.LogInformation($"Киоск {deviceId} отключён");
 
             if (exception is not null)
             {

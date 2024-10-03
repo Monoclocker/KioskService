@@ -99,5 +99,18 @@ namespace KioskService.WEB.HubFilters
             }
 
         }
+
+        public async Task OnDisconnectedAsync(HubLifetimeContext context, 
+            Exception? exception, Func<HubLifetimeContext, Exception?, Task> next)
+        {
+
+            string deviceId = context.Context.UserIdentifier!;
+
+            connectionStorage.Delete(deviceId);
+
+            logger.LogInformation($"Киоск {deviceId} отключён");
+
+            await next(context, exception);
+        }
     }
 }

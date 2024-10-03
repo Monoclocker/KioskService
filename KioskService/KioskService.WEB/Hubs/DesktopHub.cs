@@ -40,7 +40,6 @@ namespace KioskService.WEB.Hubs
             };
 
             await Clients.Caller.ConnectedToService(currentConnectedIDs);
-            await base.OnConnectedAsync();
         }
         public async Task GetPayment(Request<int> request)
         {
