@@ -10,11 +10,11 @@ namespace KioskService.Tests.Utils
 
         Faker faker = new Faker();
 
-        public MockHubCallerContext()
+        public MockHubCallerContext(bool isNull = false)
         {
             Mock<HubCallerContext> mockContext = new Mock<HubCallerContext>();
 
-            mockContext.Setup(x => x.UserIdentifier).Returns(faker.Random.Int().ToString());
+            mockContext.Setup(x => x.UserIdentifier).Returns(isNull ? null : faker.Random.Int().ToString());
 
             context = mockContext.Object;
         }
